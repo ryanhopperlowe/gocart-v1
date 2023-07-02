@@ -1,13 +1,8 @@
-import Image from 'next/image'
+export default async function HomePage() {
+  const response = await fetch("http://localhost:3000/api/lists", {
+    cache: "no-store",
+  });
+  const data = await response.text();
 
-export default function Home() {
-  return (
-    <div>
-      GoCart!
-    </div>
-  )
-}
-
-export getServerSideProps() {
-
+  return <div>GoCart!</div>;
 }
