@@ -6,11 +6,14 @@ interface Todo {
   completed: boolean;
 }
 
-const TodoSchema = new mongoose.Schema<Todo>({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  completed: { type: Boolean, required: true },
-});
+const TodoSchema = new mongoose.Schema<Todo>(
+  {
+    name: { type: String, required: true },
+    description: { type: String, required: true },
+    completed: { type: Boolean, required: true },
+  },
+  { timestamps: true }
+);
 
-export default (mongoose.models.Todo as Model<Todo>) ||
-  mongoose.model("Todo", TodoSchema);
+export const TodoModel: Model<Todo> =
+  mongoose.models.Todo || mongoose.model<Todo>("Todo", TodoSchema);

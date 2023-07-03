@@ -1,5 +1,6 @@
-import { AuthLayout, AuthProvider } from "@/components";
 import { Inter } from "next/font/google";
+import { AuthProvider } from "@/components";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +16,8 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <AuthProvider>
-          <AuthLayout>{children}</AuthLayout>
-        </AuthProvider>
+      <body suppressHydrationWarning={true} className={inter.className}>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

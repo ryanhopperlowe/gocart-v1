@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 
 type Field = {
   type: any;
@@ -13,7 +13,13 @@ const field = (overrides?: Partial<Field>): Field => ({
   ...overrides,
 });
 
-const User = new mongoose.Schema(
+interface User {
+  name: string;
+  email: string;
+  password: string;
+}
+
+const UserSchema = new mongoose.Schema<User>(
   {
     name: field({
       required: true,
@@ -30,4 +36,5 @@ const User = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("User", User);
+export const UserModel: Model<User> =
+  mongoose.models.User || mongoose.model("User", UserSchema);

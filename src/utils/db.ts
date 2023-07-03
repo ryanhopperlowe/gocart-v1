@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 export const connectDB = async () => {
   if (!process.env.MONGO_DB_URL) {
