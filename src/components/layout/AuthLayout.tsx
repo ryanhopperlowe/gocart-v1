@@ -1,28 +1,27 @@
 "use client";
 
 import { useAuth } from "@/hooks";
+import { AppNav, Spinner } from "@/components";
 
 interface AuthLayoutProps {
   children: React.ReactNode;
 }
 
 export function AuthLayout({ children }: AuthLayoutProps) {
-  const { user, isPending, signOut, signIn } = useAuth();
+  const { user, isPending, signIn } = useAuth();
 
   if (!user && !isPending) {
     signIn();
   }
 
   if (isPending) {
-    return <>Loading...</>;
+    return <Spinner centered />;
   }
 
   return (
     <>
-      {children}
-      <button className="bg-blue-500" onClick={signOut}>
-        Sign Out
-      </button>
+      <AppNav />
+      <main className="container mx-auto h-full">{children}</main>
     </>
   );
 }

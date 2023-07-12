@@ -1,18 +1,60 @@
+const withMt = require("@material-tailwind/react/utils/withMT");
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withMt({
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+    colors: {
+      "primary-100": "#F0F4F8",
+      "primary-200": "#D9E2EC",
+      "primary-400": "#9FB3C8",
+      "primary-600": "#627D98",
+      "primary-800": "#334E68",
+      "secondary-100": "#E6FFFA",
+      "secondary-200": "#B2F5EA",
+      "secondary-400": "#4FD1C5",
+      "secondary-600": "#319795",
+      "secondary-800": "#285E61",
+      "tertiary-100": "#FCE7F3",
+      "tertiary-200": "#FBCFE8",
+      "tertiary-400": "#F472B6",
+      "tertiary-600": "#DB2777",
+      "tertiary-800": "#9D174D",
+      "neutral-100": "#F5F7FA",
+      "neutral-200": "#E4E7EB",
+      "neutral-400": "#9AA5B1",
+      "neutral-600": "#616E7C",
+      "neutral-800": "#3E4C59",
+      "success-100": "#F0FFF4",
+      "success-200": "#C6F6D5",
+      "success-400": "#38A169",
+      "success-600": "#2F855A",
+      "success-800": "#22543D",
+      "warning-100": "#FFFBEB",
+      "warning-200": "#FEF3C7",
+      "warning-400": "#ECC94B",
+      "warning-600": "#B7791F",
+      "warning-800": "#744210",
+      "danger-100": "#FEF2F2",
+      "danger-200": "#FEE2E2",
+      "danger-400": "#F56565",
+      "danger-600": "#E53E3E",
+      "danger-800": "#9B2C2C",
+      "info-100": "#EBF8FF",
+      "info-200": "#BEE3F8",
+      "info-400": "#4299E1",
+      "info-600": "#3182CE",
+      "info-800": "#2B6CB0",
+      white: "#FFFFFF",
+      black: "#000000",
+      transparent: "transparent",
     },
+    extend: {},
   },
-  plugins: [],
-}
+});

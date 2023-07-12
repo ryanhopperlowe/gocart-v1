@@ -1,15 +1,17 @@
-import mongoose, { Model } from "mongoose";
+import mongoose, { Model, Mongoose } from "mongoose";
 
-interface Todo {
+export interface Todo {
+  quantity: number;
   name: string;
-  description: string;
+  location: string;
   completed: boolean;
 }
 
 const TodoSchema = new mongoose.Schema<Todo>(
   {
     name: { type: String, required: true },
-    description: { type: String, required: true },
+    quantity: { type: Number, required: true },
+    location: { type: String, required: true },
     completed: { type: Boolean, required: true },
   },
   { timestamps: true }
