@@ -1,3 +1,4 @@
 import { Spinner } from "@/components";
 
-export default () => <Spinner centered />;
+const Loading = () => <Spinner centered />;
+export default Loading;

@@ -11,8 +11,8 @@ export default async function ListsPage() {
   return (
     <div>
       I am the lists page!!
-      {data.map((list) => (
-        <li>
+      {data.map((list, index) => (
+        <li key={index}>
           <h3>{list.name}</h3>
         </li>
       ))}

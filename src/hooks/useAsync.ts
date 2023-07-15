@@ -29,7 +29,7 @@ export function useAsync<T, K extends any[]>(
 
       return promise;
     },
-    [callback]
+    [callback, hold]
   );
 
   return useMemo(
