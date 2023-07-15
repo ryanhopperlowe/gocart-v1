@@ -17,6 +17,8 @@ export const connectDB = async () => {
   }
 };
 
+// not sure which of these is better. Leaning towards whenConnected
+
 export const dbEndpoint = <T>(
   cb: (req: NextRequest) => Promise<NextResponse<T>>
 ) => {

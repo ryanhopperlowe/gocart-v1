@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { AuthProvider } from "@/components";
 import "./globals.css";
+import "remixicon/fonts/remixicon.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

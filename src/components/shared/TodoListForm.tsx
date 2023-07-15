@@ -1,6 +1,5 @@
 "use client";
 
-import { Input, Typography } from "@/external";
 import { useForm } from "react-hook-form";
 import { Button } from "./Button";
 import { useState } from "react";
@@ -44,7 +43,7 @@ export function TodoListForm(props: TodoListFormProps) {
 
   return (
     <>
-      <Typography variant="h5">New List</Typography>
+      <p>New List</p>
       <form
         className="w-full"
         onSubmit={(e) => {
@@ -63,81 +62,21 @@ export function TodoListForm(props: TodoListFormProps) {
           <thead>
             <tr>
               <th>
-                <Typography variant="lead">Quantity</Typography>
+                <p>Quantity</p>
               </th>
               <th>
-                <Typography variant="lead">Name</Typography>
+                <p>Name</p>
               </th>
               <th>
-                <Typography variant="lead">Store</Typography>
+                <p>Store</p>
               </th>
               <th>
-                <Typography variant="lead">Actions</Typography>
+                <p>Actions</p>
               </th>
             </tr>
           </thead>
           <tbody>
-            {list.map((item, index) => (
-              <tr key={index}>
-                <td>
-                  <div>
-                    <Typography>{item.quantity}</Typography>
-                  </div>
-                </td>
-                <td>
-                  <div className={className}>
-                    <Typography>{item.name}</Typography>
-                  </div>
-                </td>
-                <td>
-                  <div className={className}>
-                    <Typography>{item.location}</Typography>
-                  </div>
-                </td>
-                <td>
-                  <Button
-                    variant="filled"
-                    fullWidth
-                    className="col-span-2"
-                    onClick={() => removeItem(index)}
-                  >
-                    - Remove
-                  </Button>
-                </td>
-              </tr>
-            ))}
-            <tr>
-              <td className="col-span-2">
-                <Input
-                  width={"30px"}
-                  type="number"
-                  {...register("quantity", {
-                    onChange: ({ target: { value } }) =>
-                      setValue("quantity", +value > 0 ? +value : 1),
-                    valueAsNumber: true,
-                  })}
-                />
-              </td>
-              <td className="col-span-4">
-                <Input label="Name" {...register("name", { min: 2 })} />
-              </td>
-              <td className="col-span-4">
-                <Input
-                  label="Store (optional)"
-                  {...register("location", { min: 2 })}
-                />
-              </td>
-              <td className="col-span-2">
-                <Button
-                  variant="filled"
-                  className="col-span-2"
-                  type="submit"
-                  fullWidth
-                >
-                  + Add
-                </Button>
-              </td>
-            </tr>
+            <tr>Row</tr>
           </tbody>
         </table>
       </form>

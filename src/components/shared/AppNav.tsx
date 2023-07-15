@@ -1,40 +1,65 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components";
 import { useAuth } from "@/hooks";
 import { usePathname } from "next/navigation";
-import { Navbar, Typography } from "@/external";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { routes } from "@/routes";
 
 export function AppNav() {
   const { signOut } = useAuth();
   const pathname = usePathname();
 
-  const isMyListsPage = pathname === "/lists";
-  const isCreateListPage = pathname === "/lists/new-list";
+  const [isOpen, setIsOpen] = useState(false);
+
+  const paths = [
+    {
+      path: routes.lists(),
+      label: "My Lists",
+    },
+    {
+      path: routes.newList(),
+      label: "New List",
+    },
+  ];
 
   return (
-    <Navbar className="sticky flex justify-between text-primary-800 items-center rounded-none py-1">
-      <Link href="/">
-        <Typography variant="h5">GoCart</Typography>
-      </Link>
-      <nav className="flex flex-row-reverse">
-        <Button className="flex-initial" onClick={signOut}>
-          Sign Out
-        </Button>
-        {!isMyListsPage && (
-          <Link href="/lists">
-            <Button className="flex-initial">My Lists</Button>
-          </Link>
-        )}
-        {!isCreateListPage && (
-          <Link href="/lists/new-list">
-            <Button className="flex-initial">+ New List</Button>
-          </Link>
-        )}
-      </nav>
-    </Navbar>
+    <nav className="navbar bg-primary px-4">
+      <div className="navbar-start">
+        <h4 className="text-primary-content">GoCart</h4>
+      </div>
+      <div className="navbar-end">
+        <input
+          type="checkbox"
+          id="menu-drawer"
+          checked={isOpen}
+          className="drawer-toggle"
+        />
+        <i
+          className="ri-menu-4-fill text-lg text-primary-content"
+          onClick={() => setIsOpen(true)}
+        />
+        <div className="drawer-side w-full">
+          <label
+            htmlFor="menu-drawer"
+            className="drawer-overlay"
+            onClick={() => setIsOpen(false)}
+          ></label>
+          <ul className="menu w-60 p-4 h-full bg-base-200 text-base-content">
+            {paths.map(
+              (path) =>
+                path.path !== pathname && (
+                  <li key={path.label} onClick={() => setIsOpen(false)}>
+                    <Link href={path.path}>{path.label}</Link>
+                  </li>
+                )
+            )}
+            <li>
+              <button onClick={signOut}>Logout</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
