@@ -1,3 +1,5 @@
+"use client";
+
 import { ShoppingList } from "@/model";
 
 export default async function ListsPage() {
