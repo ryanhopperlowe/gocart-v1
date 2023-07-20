@@ -1,13 +1,19 @@
 "use client";
-
 import { ShoppingList } from "@/model";
+import { useEffect, useState } from "react";
 
-export default async function ListsPage() {
-  const request = await fetch("http://localhost:3000/api/lists");
-  const data: ShoppingList[] = await request.json();
+const ListsPage = () => {
+  // const [data, setData] = useState<ShoppingList[]>([]);
+  const data: any[] = [];
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/api/lists")
+  //     .then((response) => response.json())
+  //     .then(setData);
+  // }, []);
 
   if (!data || !data.length) {
-    return <div>There are no lists!</div>;
+    return <div>There are no lists!!!!!</div>;
   }
 
   return (
@@ -20,4 +26,6 @@ export default async function ListsPage() {
       ))}
     </div>
   );
-}
+};
+
+export default ListsPage;

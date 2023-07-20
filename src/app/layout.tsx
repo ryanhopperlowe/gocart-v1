@@ -17,8 +17,10 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={inter.className}>
-        <AuthProvider>{children}</AuthProvider>
+      <body suppressHydrationWarning={true} className={`${inter.className}`}>
+        <div className="bg-base-100 scroll-m-0">
+          <AuthProvider>{children}</AuthProvider>
+        </div>
       </body>
     </html>
   );

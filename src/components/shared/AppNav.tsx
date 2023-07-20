@@ -24,7 +24,7 @@ export function AppNav() {
   ];
 
   return (
-    <nav className="navbar bg-primary px-4">
+    <nav className="navbar sticky top-0 bg-primary pt-14 px-4 sm:pt-0">
       <div className="navbar-start">
         <h4 className="text-primary-content">GoCart</h4>
       </div>
@@ -33,6 +33,7 @@ export function AppNav() {
           type="checkbox"
           id="menu-drawer"
           checked={isOpen}
+          readOnly
           className="drawer-toggle"
         />
         <i
@@ -45,7 +46,7 @@ export function AppNav() {
             className="drawer-overlay"
             onClick={() => setIsOpen(false)}
           ></label>
-          <ul className="menu w-60 p-4 h-full bg-base-200 text-base-content">
+          <ul className="menu pt-14 w-60 p-4 h-full bg-base-200 text-base-content">
             {paths.map(
               (path) =>
                 path.path !== pathname && (

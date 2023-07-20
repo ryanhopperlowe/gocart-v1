@@ -2,7 +2,7 @@
 
 import { TodoListForm } from "@/components";
 
-export default async function NewListPage() {
+export default function NewListPage() {
   return (
     <div>
       <TodoListForm />
