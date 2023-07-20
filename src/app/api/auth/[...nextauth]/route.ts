@@ -10,6 +10,9 @@ if (
 }
 
 const handler = NextAuth({
+  pages: {
+    error: "/api/auth/signIn",
+  },
   providers: [
     Auth0Provider({
       clientId: process.env.AUTH0_CLIENT_ID,
