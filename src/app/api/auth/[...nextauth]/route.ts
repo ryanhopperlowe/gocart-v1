@@ -1,5 +1,6 @@
 import NextAuth from "next-auth/next";
 import Auth0Provider from "next-auth/providers/auth0";
+import GoogleProvider from "next-auth/providers/google";
 
 if (
   !process.env.AUTH0_CLIENT_ID ||
@@ -7,6 +8,10 @@ if (
   !process.env.AUTH0_ISSUER_BASE_URL
 ) {
   throw new Error("Missing one or more environment variables for Auth0");
+}
+
+if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
+  throw new Error("Missing one or more environment variables for Google");
 }
 
 const handler = NextAuth({
@@ -18,6 +23,10 @@ const handler = NextAuth({
       clientId: process.env.AUTH0_CLIENT_ID,
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
       issuer: process.env.AUTH0_ISSUER_BASE_URL,
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
 });
