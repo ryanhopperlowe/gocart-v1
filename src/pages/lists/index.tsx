@@ -1,4 +1,3 @@
-"use client";
 import { ShoppingList } from "@/model";
 import { useEffect, useState } from "react";
 

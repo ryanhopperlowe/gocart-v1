@@ -1,5 +1,3 @@
-"use client";
-
 import { useAuth } from "@/hooks";
 import { AppNav, Spinner } from "@/components";
 import { Browser } from "@capacitor/browser";

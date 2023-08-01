@@ -1,5 +1,3 @@
-"use client";
-
 import { TodoListForm } from "@/components";
 
 export default function NewListPage() {
